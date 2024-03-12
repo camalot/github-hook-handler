@@ -1,0 +1,49 @@
+https://docs.github.com/en/webhooks/webhook-events-and-payloads#create
+
+create
+This event occurs when a Git branch or tag is created.
+
+To subscribe to this event, a GitHub App must have at least read-level access for the "Contents" repository permission.
+
+Notes:
+
+This event will not occur when more than three tags are created at once.
+Payloads are capped at 25 MB. If an event generates a larger payload, GitHub will not deliver a payload for that webhook event. This may happen, for example, if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.
+Availability for create
+Repositories
+Organizations
+GitHub Apps
+Webhook payload object for create
+Webhook request body parameters
+Name, Type, Description
+description string or null Required
+The repository's current description.
+
+enterprise object
+An enterprise on GitHub. Webhook payloads contain the enterprise property when the webhook is configured on an enterprise account or an organization that's part of an enterprise account. For more information, see "About enterprise accounts."
+
+installation object
+The GitHub App installation. Webhook payloads contain the installation property when the event is configured for and sent to a GitHub App. For more information, see "Using webhooks with GitHub Apps."
+
+master_branch string Required
+The name of the repository's default branch (usually main).
+
+organization object
+A GitHub organization. Webhook payloads contain the organization property when the webhook is configured for an organization, or when the event occurs from activity in a repository owned by an organization.
+
+pusher_type string Required
+The pusher type for the event. Can be either user or a deploy key.
+
+ref string Required
+The git ref resource.
+
+ref_type string Required
+The type of Git ref object created in the repository.
+
+Can be one of: tag, branch
+
+repository object Required
+The repository on GitHub where the event occurred. Webhook payloads contain the repository property when the event occurs from activity in a repository.
+
+sender object Required
+The GitHub user that triggered the event. This property is included in every webhook payload.
